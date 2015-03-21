@@ -21,7 +21,7 @@ public class Vector {
 		assign(vector);
 	}
 	
-	void add(Vector vector)
+	public void add(Vector vector)
 	{
 		if(vector == null)
 		{
@@ -30,6 +30,24 @@ public class Vector {
 		this.x += vector.x;
 		this.y += vector.y;
 		this.z += vector.z;
+	}
+	
+	public void substract(Vector vector)
+	{
+		if(vector == null)
+		{
+			throw new IllegalArgumentException();
+		}
+		this.x -= vector.x;
+		this.y -= vector.y;
+		this.z -= vector.z;		
+	}
+	
+	public void multiply(double d)
+	{
+		x *= d;
+		y *= d;
+		z *= d;
 	}
 	
 	public void setValues(double x, double y, double z)
@@ -53,8 +71,8 @@ public class Vector {
 	public String toString()
 	{
 		String result = new String();
-		result += x + ' ';
-		result += y + ' ';
+		result += x + ", ";
+		result += y + ", ";
 		result += z;
 		return result;
 	}

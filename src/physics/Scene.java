@@ -7,26 +7,34 @@ public class Scene{
 	private MovableObject movableObject;
 	private LinkedList<ImmovableObject> immovableObjects;	
 	private long elapsedTime;
-	private final Vector gravity;
 	
-	public Scene(MovableObject movableobject, LinkedList<ImmovableObject> immovableObjects)
+	public Scene(MovableObject movableObject, LinkedList<ImmovableObject> immovableObjects)
 	{
+		this.movableObject = movableObject;
 		if(movableObject == null)
 		{
 			throw new IllegalArgumentException();
 		}
-		this.movableObject = movableObject;
 		if(immovableObjects != null)
 		{
 			this.immovableObjects = immovableObjects;
 		}
 		elapsedTime = 0;
-		gravity = new Vector(0, 0, -10);
 	}
 	
-	public void update(int time)
+	public void update(double time)
 	{
 		movableObject.update(time);
-		
+		elapsedTime += time;
+	}
+	
+	public String toString()
+	{
+		return movableObject.toString();
+	}
+	
+	public long getTotalTime()
+	{
+		return elapsedTime;
 	}
 }
